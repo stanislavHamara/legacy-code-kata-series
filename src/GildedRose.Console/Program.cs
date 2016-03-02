@@ -8,7 +8,7 @@ namespace GildedRose.Console
 
         private static void Main(string[] args)
         {
-            System.Console.WriteLine("OMGHAI!");
+            System.Console.WriteLine("RUNNING UPDATE");
 
             var app = new Program
             {
@@ -28,9 +28,21 @@ namespace GildedRose.Console
                 }
             };
 
+            PrintItems(app.Items);
+
             app.UpdateQuality();
 
+            System.Console.WriteLine("UPDATE FINISHED");
+
             System.Console.ReadKey();
+        }
+
+        private static void PrintItems(IList<Item> items)
+        {
+            foreach (var item in items)
+            {
+                System.Console.WriteLine("{0} Quality({1}) SellIn({2})", item.Name, item.Quality, item.SellIn);
+            } 
         }
 
         public void UpdateQuality()
