@@ -54,7 +54,7 @@ namespace GildedRose.Console
             foreach (var item in items)
             {
                 System.Console.WriteLine("{0} Quality({1}) SellIn({2})", item.Name, item.Quality, item.SellIn);
-            } 
+            }
         }
 
         public void UpdateQuality()
@@ -113,6 +113,11 @@ namespace GildedRose.Console
 
                 if (Items[i].SellIn < 0)
                 {
+                    if (Items[i].Name == "Conjured Mana Cake")
+                    {
+                        Items[i].Quality = Items[i].Quality - 1;
+                    }
+
                     if (Items[i].Name != "Aged Brie")
                     {
                         if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
