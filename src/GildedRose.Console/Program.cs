@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRose.Console
 {
@@ -28,10 +29,21 @@ namespace GildedRose.Console
                 }
             };
 
+            System.Console.WriteLine();
+            System.Console.WriteLine("INITIAL ITEMS");
+            System.Console.WriteLine();
+
             PrintItems(app.Items);
 
             app.UpdateQuality();
 
+            System.Console.WriteLine();
+            System.Console.WriteLine("UPDATING ITEMS");
+            System.Console.WriteLine();
+
+            PrintItems(app.Items);
+
+            System.Console.WriteLine();
             System.Console.WriteLine("UPDATE FINISHED");
 
             System.Console.ReadKey();
@@ -121,6 +133,8 @@ namespace GildedRose.Console
             }
         }
     }
+
+
 
     public class Item
     {
