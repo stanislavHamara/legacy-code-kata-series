@@ -103,6 +103,11 @@ namespace GildedRose.Console
                     Items[i].SellIn = Items[i].SellIn - 1;
                 }
 
+                if (Items[i].Name == "Conjured Mana Cake")
+                {
+                    Items[i].Quality = Items[i].Quality - 1;
+                }
+
                 if (Items[i].SellIn < 0)
                 {
                     if (Items[i].Name != "Aged Brie")
