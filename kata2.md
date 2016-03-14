@@ -10,9 +10,9 @@ Practice techniques for writing decent quality tests against legacy code. Keep y
 
 Provide complete code coverage over the app. You could use NCrunch/DotCover to measure this.
 
-1. Write a Golden Master test to capture the current behaviour of the whole app.
+1. **Write a Golden Master test** to capture the current behaviour of the whole app.
 
-2. Write characterisation tests to capture the remaining behaviour of lower level and edge case parts of the system, e.g. per feature.
+2. **Write characterisation tests** to capture the remaining behaviour of lower level and edge case parts of the system, e.g. per feature.
 
 ## FAQ
 
