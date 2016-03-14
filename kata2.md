@@ -6,6 +6,8 @@ Refer to the [readme.md](README.md) for an overview of the kata series and the c
 
 Practice techniques for writing decent quality tests against legacy code. Keep your tests DRY through relentless refactoring - this will help you produce high quality tests, which aren't poor quality like the production code that they cover.
 
+These tests will allow us to make changes to the production code while maintaining confidence that the whole system still functions as it should, e.g. after refactorings or implementing new features such as conjured items.
+
 ## Tasks
 
 Provide complete code coverage over the app. You could use NCrunch/DotCover to measure this.
