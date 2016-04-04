@@ -50,6 +50,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemUpdaterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GoldenTests.cs" />
   </ItemGroup>

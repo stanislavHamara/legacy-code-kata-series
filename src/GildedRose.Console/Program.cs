@@ -57,7 +57,7 @@ namespace GildedRose.Console
             }
         }
 
-        private void UpdateItem(Item item)
+        internal static void UpdateItem(Item item)
         {
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
