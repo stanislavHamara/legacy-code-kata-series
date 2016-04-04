@@ -81,5 +81,38 @@ namespace GildedRose.Tests
             Assert.AreEqual(8, item.Quality);
             Assert.AreEqual(-1, item.SellIn);
         }
+
+        [Test]
+        public void StandardItemQualityIsNeverNegative()
+        {
+            var item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 0 };
+
+            Program.UpdateItem(item);
+
+            Assert.AreEqual(0, item.Quality);
+            Assert.AreEqual(9, item.SellIn);
+        }
+
+        [Test]
+        public void SulfurasNeverDecreasesInQualityAndNeverHasToBeSold()
+        {
+            var item = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 };
+
+            Program.UpdateItem(item);
+
+            Assert.AreEqual(80, item.Quality);
+            Assert.AreEqual(10, item.SellIn);
+        }
+
+        [Test]
+        public void AgedBrieQualityCanNeverBeMoreThanFifty()
+        {
+            var item = new Item { Name = "Aged Brie", SellIn = -1, Quality = 50 };
+
+            Program.UpdateItem(item);
+
+            Assert.AreEqual(50, item.Quality);
+            Assert.AreEqual(-2, item.SellIn);
+        }
     }
 }
