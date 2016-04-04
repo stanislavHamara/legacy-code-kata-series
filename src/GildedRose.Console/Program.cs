@@ -7,7 +7,14 @@ namespace GildedRose.Console
     {
         private IList<Item> Items;
 
-        private static void Main(string[] args)
+        internal static void Main(string[] args)
+        {
+            UpdateAndPrintItems();
+
+            System.Console.ReadKey();
+        }
+
+        internal static void UpdateAndPrintItems()
         {
             System.Console.WriteLine("OMGHAI!");
 
@@ -32,8 +39,6 @@ namespace GildedRose.Console
             app.UpdateQuality();
 
             PrintItems(app);
-
-            System.Console.ReadKey();
         }
 
         private static void PrintItems(Program app)
