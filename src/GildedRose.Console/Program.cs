@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRose.Console
 {
@@ -30,7 +31,17 @@ namespace GildedRose.Console
 
             app.UpdateQuality();
 
+            PrintItems(app);
+
             System.Console.ReadKey();
+        }
+
+        private static void PrintItems(Program app)
+        {
+            foreach (var item in app.Items)
+            {
+                System.Console.WriteLine("{0}|{1}|{2}", item.Name, item.Quality, item.SellIn);
+            }
         }
 
         public void UpdateQuality()
