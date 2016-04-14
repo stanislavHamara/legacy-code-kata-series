@@ -13,6 +13,7 @@ namespace GildedRose.Console
         private const string ElixirOfTheMongooseName = "Elixir of the Mongoose";
         private const string ConjuredManaCakeName = "Conjured Mana Cake";
         private const int MaxQualityForNormalItems = 50;
+        private const int MinimumQuality = 0;
 
         private IList<Item> Items;
 
@@ -32,7 +33,7 @@ namespace GildedRose.Console
                 Items = new List<Item>
                 {
                     new Item {Name = DexterityVestName, SellIn = 10, Quality = 20},
-                    new Item {Name = AgedBrieName, SellIn = 2, Quality = 0},
+                    new Item {Name = AgedBrieName, SellIn = 2, Quality = MinimumQuality},
                     new Item {Name = ElixirOfTheMongooseName, SellIn = 5, Quality = 7},
                     new Item {Name = SulfurasHandOfRagnarosName, SellIn = 0, Quality = 80},
                     new Item
@@ -70,7 +71,7 @@ namespace GildedRose.Console
                 var item = items[i];
                 if (item.Name != AgedBrieName && item.Name != BackstagePassName)
                 {
-                    if (item.Quality > 0)
+                    if (item.Quality > MinimumQuality)
                     {
                         if (IsNotHandOfRagnoros(item))
                         {
@@ -116,7 +117,7 @@ namespace GildedRose.Console
                     {
                         if (item.Name != BackstagePassName)
                         {
-                            if (item.Quality > 0)
+                            if (item.Quality > MinimumQuality)
                             {
                                 if (IsNotHandOfRagnoros(item))
                                 {
