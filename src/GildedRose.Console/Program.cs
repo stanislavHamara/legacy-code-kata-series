@@ -6,6 +6,7 @@ namespace GildedRose.Console
 {
     internal class Program
     {
+        private const string BackstagePassName = "Backstage passes to a TAFKAL80ETC concert";
         private IList<Item> Items;
 
         internal static void Main(string[] args)
@@ -29,7 +30,7 @@ namespace GildedRose.Console
                     new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
                     new Item
                     {
-                        Name = "Backstage passes to a TAFKAL80ETC concert",
+                        Name = BackstagePassName,
                         SellIn = 15,
                         Quality = 20
                     },
@@ -60,7 +61,7 @@ namespace GildedRose.Console
             for (var i = 0; i < items.Length; i++)
             {
                 var item = items[i];
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (item.Name != "Aged Brie" && item.Name != BackstagePassName)
                 {
                     if (item.Quality > 0)
                     {
@@ -76,7 +77,7 @@ namespace GildedRose.Console
                     {
                         item.Quality = item.Quality + 1;
 
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                        if (item.Name == BackstagePassName)
                         {
                             if (item.SellIn < 11)
                             {
@@ -106,7 +107,7 @@ namespace GildedRose.Console
                 {
                     if (item.Name != "Aged Brie")
                     {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (item.Name != BackstagePassName)
                         {
                             if (item.Quality > 0)
                             {
