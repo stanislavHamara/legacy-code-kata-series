@@ -81,7 +81,7 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (item.Quality < MaxQualityForNormalItems)
+                    if (CanIncreaseQuality(item))
                     {
                         IncreaseQuality(item);
 
@@ -89,7 +89,7 @@ namespace GildedRose.Console
                         {
                             if (InsideTicketBonusPeriod(item))
                             {
-                                if (item.Quality < MaxQualityForNormalItems)
+                                if (CanIncreaseQuality(item))
                                 {
                                     IncreaseQuality(item);
                                 }
@@ -97,7 +97,7 @@ namespace GildedRose.Console
 
                             if (InsideTicketSecondBonusPeriod(item))
                             {
-                                if (item.Quality < MaxQualityForNormalItems)
+                                if (CanIncreaseQuality(item))
                                 {
                                     IncreaseQuality(item);
                                 }
@@ -132,13 +132,18 @@ namespace GildedRose.Console
                     }
                     else
                     {
-                        if (item.Quality < MaxQualityForNormalItems)
+                        if (CanIncreaseQuality(item))
                         {
                             IncreaseQuality(item);
                         }
                     }
                 }
             }
+        }
+
+        private static bool CanIncreaseQuality(Item item)
+        {
+            return item.Quality < MaxQualityForNormalItems;
         }
 
         private static bool HasExpired(Item item)
