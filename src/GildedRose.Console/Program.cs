@@ -101,23 +101,23 @@ namespace GildedRose.Console
 
                 if (HasExpired(item))
                 {
-                    if (item.Name != AgedBrieName)
+                    if (item.Name == AgedBrieName)
                     {
-                        if (item.Name != BackstagePassName)
+                        IncreaseQualityWithinLimit(item);
+                    }
+                    else
+                    {
+                        if (item.Name == BackstagePassName)
+                        {
+                            item.Quality = 0;
+                        }
+                        else
                         {
                             if (!IsHandOfRagnoros(item))
                             {
                                 DecreaseQualityWithinLimit(item);
                             }
                         }
-                        else
-                        {
-                            item.Quality = 0;
-                        }
-                    }
-                    else
-                    {
-                        IncreaseQualityWithinLimit(item);
                     }
                 }
             }
