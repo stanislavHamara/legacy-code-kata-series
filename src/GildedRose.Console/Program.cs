@@ -87,7 +87,7 @@ namespace GildedRose.Console
 
                         if (item.Name == BackstagePassName)
                         {
-                            if (item.SellIn < 11)
+                            if (InsideTicketBonusPeriod(item))
                             {
                                 if (item.Quality < MaxQualityForNormalItems)
                                 {
@@ -95,7 +95,7 @@ namespace GildedRose.Console
                                 }
                             }
 
-                            if (item.SellIn < 6)
+                            if (InsideTicketSecondBonusPeriod(item))
                             {
                                 if (item.Quality < MaxQualityForNormalItems)
                                 {
@@ -139,6 +139,16 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static bool InsideTicketSecondBonusPeriod(Item item)
+        {
+            return item.SellIn < 6;
+        }
+
+        private static bool InsideTicketBonusPeriod(Item item)
+        {
+            return item.SellIn < 11;
         }
 
         private static bool IsNotHandOfRagnoros(Item item)
