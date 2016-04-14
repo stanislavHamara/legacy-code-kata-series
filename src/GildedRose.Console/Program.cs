@@ -72,58 +72,13 @@ namespace GildedRose.Console
 
                 if (item.Name == AgedBrieName)
                 {
-                    if (item.Name == AgedBrieName || item.Name == BackstagePassName)
-                    {
-                        IncreaseQualityWithinLimit(item);
-
-                        if (item.Name == BackstagePassName)
-                        {
-                            if (InsideTicketBonusPeriod(item))
-                            {
-                                IncreaseQualityWithinLimit(item);
-                            }
-
-                            if (InsideTicketSecondBonusPeriod(item))
-                            {
-                                IncreaseQualityWithinLimit(item);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (item.Name != SulfurasHandOfRagnarosName)
-                        {
-                            DecreaseQualityWithinLimit(item);
-                        }
-                    }
-
-                    if (item.Name != SulfurasHandOfRagnarosName)
-                    {
-                        DecreaseSellIn(item);
-                    }
+                    IncreaseQualityWithinLimit(item);
+                    DecreaseSellIn(item);
 
                     if (HasExpired(item))
                     {
-                        if (item.Name == AgedBrieName)
-                        {
-                            IncreaseQualityWithinLimit(item);
-                        }
-                        else
-                        {
-                            if (item.Name == BackstagePassName)
-                            {
-                                item.Quality = 0;
-                            }
-                            else
-                            {
-                                if (item.Name != SulfurasHandOfRagnarosName)
-                                {
-                                    DecreaseQualityWithinLimit(item);
-                                }
-                            }
-                        }
+                        IncreaseQualityWithinLimit(item);
                     }
-                    
                 }
                 if (item.Name == BackstagePassName)
                 {
