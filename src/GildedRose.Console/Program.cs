@@ -81,21 +81,18 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (CanIncreaseQuality(item))
+                    IncreaseQualityWithinLimit(item);
+
+                    if (item.Name == BackstagePassName)
                     {
-                        IncreaseQuality(item);
-
-                        if (item.Name == BackstagePassName)
+                        if (InsideTicketBonusPeriod(item))
                         {
-                            if (InsideTicketBonusPeriod(item))
-                            {
-                                IncreaseQualityWithinLimit(item);
-                            }
+                            IncreaseQualityWithinLimit(item);
+                        }
 
-                            if (InsideTicketSecondBonusPeriod(item))
-                            {
-                                IncreaseQualityWithinLimit(item);
-                            }
+                        if (InsideTicketSecondBonusPeriod(item))
+                        {
+                            IncreaseQualityWithinLimit(item);
                         }
                     }
                 }
