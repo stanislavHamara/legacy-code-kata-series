@@ -1,4 +1,5 @@
-﻿using GildedRose.Console;
+﻿using System.Collections.Generic;
+using GildedRose.Console;
 using NUnit.Framework;
 
 namespace GildedRose.Tests
@@ -10,7 +11,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = 3, Quality = 6 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(5, item.Quality);
             Assert.AreEqual(2, item.SellIn);
@@ -21,7 +22,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = -2, Quality = 6 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(4, item.Quality);
             Assert.AreEqual(-3, item.SellIn);
@@ -32,7 +33,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = 0, Quality = 6 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(4, item.Quality);
             Assert.AreEqual(-1, item.SellIn);
@@ -43,7 +44,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 6 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(8, item.Quality);
             Assert.AreEqual(9, item.SellIn);
@@ -54,7 +55,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 6 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(9, item.Quality);
             Assert.AreEqual(4, item.SellIn);
@@ -65,7 +66,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 6 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(0, item.Quality);
             Assert.AreEqual(-1, item.SellIn);
@@ -76,7 +77,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "Aged Brie", SellIn = 0, Quality = 6 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(8, item.Quality);
             Assert.AreEqual(-1, item.SellIn);
@@ -87,7 +88,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 0 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(0, item.Quality);
             Assert.AreEqual(9, item.SellIn);
@@ -98,7 +99,7 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(80, item.Quality);
             Assert.AreEqual(10, item.SellIn);
@@ -109,10 +110,15 @@ namespace GildedRose.Tests
         {
             var item = new Item { Name = "Aged Brie", SellIn = -1, Quality = 50 };
 
-            Program.UpdateItem(item);
+            UpdateItem(item);
 
             Assert.AreEqual(50, item.Quality);
             Assert.AreEqual(-2, item.SellIn);
+        }
+
+        private void UpdateItem(Item item)
+        {
+            Program.UpdateQuality(new[] { item });
         }
     }
 }
