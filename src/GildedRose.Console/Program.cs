@@ -12,6 +12,7 @@ namespace GildedRose.Console
         private const string DexterityVestName = "+5 Dexterity Vest";
         private const string ElixirOfTheMongooseName = "Elixir of the Mongoose";
         private const string ConjuredManaCakeName = "Conjured Mana Cake";
+        private const int MaxQualityForNormalItems = 50;
 
         private IList<Item> Items;
 
@@ -79,7 +80,7 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (item.Quality < 50)
+                    if (item.Quality < MaxQualityForNormalItems)
                     {
                         item.Quality = item.Quality + 1;
 
@@ -87,7 +88,7 @@ namespace GildedRose.Console
                         {
                             if (item.SellIn < 11)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < MaxQualityForNormalItems)
                                 {
                                     item.Quality = item.Quality + 1;
                                 }
@@ -95,7 +96,7 @@ namespace GildedRose.Console
 
                             if (item.SellIn < 6)
                             {
-                                if (item.Quality < 50)
+                                if (item.Quality < MaxQualityForNormalItems)
                                 {
                                     item.Quality = item.Quality + 1;
                                 }
@@ -130,7 +131,7 @@ namespace GildedRose.Console
                     }
                     else
                     {
-                        if (item.Quality < 50)
+                        if (item.Quality < MaxQualityForNormalItems)
                         {
                             item.Quality = item.Quality + 1;
                         }
