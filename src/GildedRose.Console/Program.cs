@@ -111,7 +111,7 @@ namespace GildedRose.Console
                     DecreaseSellIn(item);
                 }
 
-                if (item.SellIn < 0)
+                if (HasExpired(item))
                 {
                     if (item.Name != AgedBrieName)
                     {
@@ -139,6 +139,11 @@ namespace GildedRose.Console
                     }
                 }
             }
+        }
+
+        private static bool HasExpired(Item item)
+        {
+            return item.SellIn < 0;
         }
 
         private static void DecreaseSellIn(Item item)
