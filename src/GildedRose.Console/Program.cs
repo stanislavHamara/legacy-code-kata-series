@@ -8,6 +8,7 @@ namespace GildedRose.Console
     {
         private const string BackstagePassName = "Backstage passes to a TAFKAL80ETC concert";
         private const string AgedBrieName = "Aged Brie";
+        private const string SulfurasHandOfRagnarosName = "Sulfuras, Hand of Ragnaros";
         private IList<Item> Items;
 
         internal static void Main(string[] args)
@@ -28,7 +29,7 @@ namespace GildedRose.Console
                     new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                     new Item {Name = AgedBrieName, SellIn = 2, Quality = 0},
                     new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                    new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
+                    new Item {Name = SulfurasHandOfRagnarosName, SellIn = 0, Quality = 80},
                     new Item
                     {
                         Name = BackstagePassName,
@@ -136,7 +137,7 @@ namespace GildedRose.Console
 
         private static bool IsNotHandOfRagnoros(Item item)
         {
-            return item.Name != "Sulfuras, Hand of Ragnaros";
+            return item.Name != SulfurasHandOfRagnarosName;
         }
     }
 
