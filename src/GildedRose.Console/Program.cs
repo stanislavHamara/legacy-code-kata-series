@@ -70,89 +70,24 @@ namespace GildedRose.Console
             {
                 var item = items[i];
 
-                switch (item.Name)
-                {
-                    case AgedBrieName:
-                    {
-                        UpdateQuality(item);
-                        break;
-                    }
-                    case BackstagePassName:
-                    {
-                        UpdateQuality(item);
-                        break;
-                    }
-                    case SulfurasHandOfRagnarosName:
-                    {
-                        UpdateQuality(item);
-                        break;
-                    }
-                    case DexterityVestName:
-                    {
-                        UpdateQuality(item);
-                        break;
-                    }
-                    case ElixirOfTheMongooseName:
-                    {
-                        UpdateQuality(item);
-                        break;
-                    }
-                    case ConjuredManaCakeName:
-                    {
-                        UpdateQuality(item);
-                        break;
-                    }
-                    default:
-                    {
-                        throw new Exception("Unknown item");
-                    }
-                }
-            }
-        }
-
-        private static void UpdateQuality(Item item)
-        {
-            if (item.Name == AgedBrieName || item.Name == BackstagePassName)
-            {
-                IncreaseQualityWithinLimit(item);
-
-                if (item.Name == BackstagePassName)
-                {
-                    if (InsideTicketBonusPeriod(item))
-                    {
-                        IncreaseQualityWithinLimit(item);
-                    }
-
-                    if (InsideTicketSecondBonusPeriod(item))
-                    {
-                        IncreaseQualityWithinLimit(item);
-                    }
-                }
-            }
-            else
-            {
-                if (item.Name != SulfurasHandOfRagnarosName)
-                {
-                    DecreaseQualityWithinLimit(item);
-                }
-            }
-
-            if (item.Name != SulfurasHandOfRagnarosName)
-            {
-                DecreaseSellIn(item);
-            }
-
-            if (HasExpired(item))
-            {
                 if (item.Name == AgedBrieName)
                 {
-                    IncreaseQualityWithinLimit(item);
-                }
-                else
-                {
-                    if (item.Name == BackstagePassName)
+                    if (item.Name == AgedBrieName || item.Name == BackstagePassName)
                     {
-                        item.Quality = 0;
+                        IncreaseQualityWithinLimit(item);
+
+                        if (item.Name == BackstagePassName)
+                        {
+                            if (InsideTicketBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+
+                            if (InsideTicketSecondBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+                        }
                     }
                     else
                     {
@@ -161,6 +96,309 @@ namespace GildedRose.Console
                             DecreaseQualityWithinLimit(item);
                         }
                     }
+
+                    if (item.Name != SulfurasHandOfRagnarosName)
+                    {
+                        DecreaseSellIn(item);
+                    }
+
+                    if (HasExpired(item))
+                    {
+                        if (item.Name == AgedBrieName)
+                        {
+                            IncreaseQualityWithinLimit(item);
+                        }
+                        else
+                        {
+                            if (item.Name == BackstagePassName)
+                            {
+                                item.Quality = 0;
+                            }
+                            else
+                            {
+                                if (item.Name != SulfurasHandOfRagnarosName)
+                                {
+                                    DecreaseQualityWithinLimit(item);
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                if (item.Name == BackstagePassName)
+                {
+                    if (item.Name == AgedBrieName || item.Name == BackstagePassName)
+                    {
+                        IncreaseQualityWithinLimit(item);
+
+                        if (item.Name == BackstagePassName)
+                        {
+                            if (InsideTicketBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+
+                            if (InsideTicketSecondBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.Name != SulfurasHandOfRagnarosName)
+                        {
+                            DecreaseQualityWithinLimit(item);
+                        }
+                    }
+
+                    if (item.Name != SulfurasHandOfRagnarosName)
+                    {
+                        DecreaseSellIn(item);
+                    }
+
+                    if (HasExpired(item))
+                    {
+                        if (item.Name == AgedBrieName)
+                        {
+                            IncreaseQualityWithinLimit(item);
+                        }
+                        else
+                        {
+                            if (item.Name == BackstagePassName)
+                            {
+                                item.Quality = 0;
+                            }
+                            else
+                            {
+                                if (item.Name != SulfurasHandOfRagnarosName)
+                                {
+                                    DecreaseQualityWithinLimit(item);
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                if (item.Name == SulfurasHandOfRagnarosName)
+                {
+                    if (item.Name == AgedBrieName || item.Name == BackstagePassName)
+                    {
+                        IncreaseQualityWithinLimit(item);
+
+                        if (item.Name == BackstagePassName)
+                        {
+                            if (InsideTicketBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+
+                            if (InsideTicketSecondBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.Name != SulfurasHandOfRagnarosName)
+                        {
+                            DecreaseQualityWithinLimit(item);
+                        }
+                    }
+
+                    if (item.Name != SulfurasHandOfRagnarosName)
+                    {
+                        DecreaseSellIn(item);
+                    }
+
+                    if (HasExpired(item))
+                    {
+                        if (item.Name == AgedBrieName)
+                        {
+                            IncreaseQualityWithinLimit(item);
+                        }
+                        else
+                        {
+                            if (item.Name == BackstagePassName)
+                            {
+                                item.Quality = 0;
+                            }
+                            else
+                            {
+                                if (item.Name != SulfurasHandOfRagnarosName)
+                                {
+                                    DecreaseQualityWithinLimit(item);
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                if (item.Name == DexterityVestName)
+                {
+                    if (item.Name == AgedBrieName || item.Name == BackstagePassName)
+                    {
+                        IncreaseQualityWithinLimit(item);
+
+                        if (item.Name == BackstagePassName)
+                        {
+                            if (InsideTicketBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+
+                            if (InsideTicketSecondBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.Name != SulfurasHandOfRagnarosName)
+                        {
+                            DecreaseQualityWithinLimit(item);
+                        }
+                    }
+
+                    if (item.Name != SulfurasHandOfRagnarosName)
+                    {
+                        DecreaseSellIn(item);
+                    }
+
+                    if (HasExpired(item))
+                    {
+                        if (item.Name == AgedBrieName)
+                        {
+                            IncreaseQualityWithinLimit(item);
+                        }
+                        else
+                        {
+                            if (item.Name == BackstagePassName)
+                            {
+                                item.Quality = 0;
+                            }
+                            else
+                            {
+                                if (item.Name != SulfurasHandOfRagnarosName)
+                                {
+                                    DecreaseQualityWithinLimit(item);
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                if (item.Name == ElixirOfTheMongooseName)
+                {
+                    if (item.Name == AgedBrieName || item.Name == BackstagePassName)
+                    {
+                        IncreaseQualityWithinLimit(item);
+
+                        if (item.Name == BackstagePassName)
+                        {
+                            if (InsideTicketBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+
+                            if (InsideTicketSecondBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.Name != SulfurasHandOfRagnarosName)
+                        {
+                            DecreaseQualityWithinLimit(item);
+                        }
+                    }
+
+                    if (item.Name != SulfurasHandOfRagnarosName)
+                    {
+                        DecreaseSellIn(item);
+                    }
+
+                    if (HasExpired(item))
+                    {
+                        if (item.Name == AgedBrieName)
+                        {
+                            IncreaseQualityWithinLimit(item);
+                        }
+                        else
+                        {
+                            if (item.Name == BackstagePassName)
+                            {
+                                item.Quality = 0;
+                            }
+                            else
+                            {
+                                if (item.Name != SulfurasHandOfRagnarosName)
+                                {
+                                    DecreaseQualityWithinLimit(item);
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                if (item.Name == ConjuredManaCakeName)
+                {
+                    if (item.Name == AgedBrieName || item.Name == BackstagePassName)
+                    {
+                        IncreaseQualityWithinLimit(item);
+
+                        if (item.Name == BackstagePassName)
+                        {
+                            if (InsideTicketBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+
+                            if (InsideTicketSecondBonusPeriod(item))
+                            {
+                                IncreaseQualityWithinLimit(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.Name != SulfurasHandOfRagnarosName)
+                        {
+                            DecreaseQualityWithinLimit(item);
+                        }
+                    }
+
+                    if (item.Name != SulfurasHandOfRagnarosName)
+                    {
+                        DecreaseSellIn(item);
+                    }
+
+                    if (HasExpired(item))
+                    {
+                        if (item.Name == AgedBrieName)
+                        {
+                            IncreaseQualityWithinLimit(item);
+                        }
+                        else
+                        {
+                            if (item.Name == BackstagePassName)
+                            {
+                                item.Quality = 0;
+                            }
+                            else
+                            {
+                                if (item.Name != SulfurasHandOfRagnarosName)
+                                {
+                                    DecreaseQualityWithinLimit(item);
+                                }
+                            }
+                        }
+                    }
+                    
                 }
             }
         }
