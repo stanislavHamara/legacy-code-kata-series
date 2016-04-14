@@ -71,7 +71,7 @@ namespace GildedRose.Console
                 var item = items[i];
                 if (item.Name != AgedBrieName && item.Name != BackstagePassName)
                 {
-                    if (IsNotHandOfRagnoros(item))
+                    if (!IsHandOfRagnoros(item))
                     {
                         DecreaseQualityWithinLimit(item);
                     }
@@ -94,7 +94,7 @@ namespace GildedRose.Console
                     }
                 }
 
-                if (IsNotHandOfRagnoros(item))
+                if (!IsHandOfRagnoros(item))
                 {
                     DecreaseSellIn(item);
                 }
@@ -105,7 +105,7 @@ namespace GildedRose.Console
                     {
                         if (item.Name != BackstagePassName)
                         {
-                            if (IsNotHandOfRagnoros(item))
+                            if (!IsHandOfRagnoros(item))
                             {
                                 DecreaseQualityWithinLimit(item);
                             }
@@ -174,9 +174,9 @@ namespace GildedRose.Console
             return item.SellIn < 11;
         }
 
-        private static bool IsNotHandOfRagnoros(Item item)
+        private static bool IsHandOfRagnoros(Item item)
         {
-            return item.Name != SulfurasHandOfRagnarosName;
+            return item.Name == SulfurasHandOfRagnarosName;
         }
     }
 
