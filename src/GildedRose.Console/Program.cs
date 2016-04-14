@@ -73,10 +73,7 @@ namespace GildedRose.Console
                 {
                     if (IsNotHandOfRagnoros(item))
                     {
-                        if (item.Quality > MinimumQuality)
-                        {
-                            DecreaseQuality(item);
-                        }
+                        DecreaseQualityWithinLimit(item);
                     }
                 }
                 else
@@ -110,10 +107,7 @@ namespace GildedRose.Console
                         {
                             if (IsNotHandOfRagnoros(item))
                             {
-                                if (item.Quality > MinimumQuality)
-                                {
-                                    DecreaseQuality(item);
-                                }
+                                DecreaseQualityWithinLimit(item);
                             }
                         }
                         else
@@ -126,6 +120,14 @@ namespace GildedRose.Console
                         IncreaseQualityWithinLimit(item);
                     }
                 }
+            }
+        }
+
+        private static void DecreaseQualityWithinLimit(Item item)
+        {
+            if (item.Quality > MinimumQuality)
+            {
+                DecreaseQuality(item);
             }
         }
 
