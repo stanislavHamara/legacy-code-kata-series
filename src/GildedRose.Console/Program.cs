@@ -88,13 +88,13 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (!IsHandOfRagnoros(item))
+                    if (item.Name != SulfurasHandOfRagnarosName)
                     {
                         DecreaseQualityWithinLimit(item);
                     }
                 }
 
-                if (!IsHandOfRagnoros(item))
+                if (item.Name != SulfurasHandOfRagnarosName)
                 {
                     DecreaseSellIn(item);
                 }
@@ -113,7 +113,7 @@ namespace GildedRose.Console
                         }
                         else
                         {
-                            if (!IsHandOfRagnoros(item))
+                            if (item.Name != SulfurasHandOfRagnarosName)
                             {
                                 DecreaseQualityWithinLimit(item);
                             }
@@ -172,11 +172,6 @@ namespace GildedRose.Console
         private static bool InsideTicketBonusPeriod(Item item)
         {
             return item.SellIn < 11;
-        }
-
-        private static bool IsHandOfRagnoros(Item item)
-        {
-            return item.Name == SulfurasHandOfRagnarosName;
         }
     }
 
