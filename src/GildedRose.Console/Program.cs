@@ -89,18 +89,12 @@ namespace GildedRose.Console
                         {
                             if (InsideTicketBonusPeriod(item))
                             {
-                                if (CanIncreaseQuality(item))
-                                {
-                                    IncreaseQuality(item);
-                                }
+                                IncreaseQualityWithinLimit(item);
                             }
 
                             if (InsideTicketSecondBonusPeriod(item))
                             {
-                                if (CanIncreaseQuality(item))
-                                {
-                                    IncreaseQuality(item);
-                                }
+                                IncreaseQualityWithinLimit(item);
                             }
                         }
                     }
@@ -132,12 +126,17 @@ namespace GildedRose.Console
                     }
                     else
                     {
-                        if (CanIncreaseQuality(item))
-                        {
-                            IncreaseQuality(item);
-                        }
+                        IncreaseQualityWithinLimit(item);
                     }
                 }
+            }
+        }
+
+        private static void IncreaseQualityWithinLimit(Item item)
+        {
+            if (CanIncreaseQuality(item))
+            {
+                IncreaseQuality(item);
             }
         }
 
