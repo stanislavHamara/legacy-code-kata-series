@@ -69,7 +69,44 @@ namespace GildedRose.Console
             for (var i = 0; i < items.Length; i++)
             {
                 var item = items[i];
-                UpdateQuality(item);
+
+                switch (item.Name)
+                {
+                    case AgedBrieName:
+                    {
+                        UpdateQuality(item);
+                        break;
+                    }
+                    case BackstagePassName:
+                    {
+                        UpdateQuality(item);
+                        break;
+                    }
+                    case SulfurasHandOfRagnarosName:
+                    {
+                        UpdateQuality(item);
+                        break;
+                    }
+                    case DexterityVestName:
+                    {
+                        UpdateQuality(item);
+                        break;
+                    }
+                    case ElixirOfTheMongooseName:
+                    {
+                        UpdateQuality(item);
+                        break;
+                    }
+                    case ConjuredManaCakeName:
+                    {
+                        UpdateQuality(item);
+                        break;
+                    }
+                    default:
+                    {
+                        throw new Exception("Unknown item");
+                    }
+                }
             }
         }
 
