@@ -75,7 +75,7 @@ namespace GildedRose.Console
                     {
                         if (IsNotHandOfRagnoros(item))
                         {
-                            item.Quality = item.Quality - 1;
+                            DecreaseQuality(item);
                         }
                     }
                 }
@@ -83,7 +83,7 @@ namespace GildedRose.Console
                 {
                     if (item.Quality < MaxQualityForNormalItems)
                     {
-                        item.Quality = item.Quality + 1;
+                        IncreaseQuality(item);
 
                         if (item.Name == BackstagePassName)
                         {
@@ -91,7 +91,7 @@ namespace GildedRose.Console
                             {
                                 if (item.Quality < MaxQualityForNormalItems)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    IncreaseQuality(item);
                                 }
                             }
 
@@ -99,7 +99,7 @@ namespace GildedRose.Console
                             {
                                 if (item.Quality < MaxQualityForNormalItems)
                                 {
-                                    item.Quality = item.Quality + 1;
+                                    IncreaseQuality(item);
                                 }
                             }
                         }
@@ -121,7 +121,7 @@ namespace GildedRose.Console
                             {
                                 if (IsNotHandOfRagnoros(item))
                                 {
-                                    item.Quality = item.Quality - 1;
+                                    DecreaseQuality(item);
                                 }
                             }
                         }
@@ -134,11 +134,21 @@ namespace GildedRose.Console
                     {
                         if (item.Quality < MaxQualityForNormalItems)
                         {
-                            item.Quality = item.Quality + 1;
+                            IncreaseQuality(item);
                         }
                     }
                 }
             }
+        }
+
+        private static void DecreaseQuality(Item item)
+        {
+            item.Quality = item.Quality - 1;
+        }
+
+        private static void IncreaseQuality(Item item)
+        {
+            item.Quality = item.Quality + 1;
         }
 
         private static bool InsideTicketSecondBonusPeriod(Item item)
