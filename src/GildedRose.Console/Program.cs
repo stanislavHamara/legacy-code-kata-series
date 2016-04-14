@@ -71,9 +71,9 @@ namespace GildedRose.Console
                 var item = items[i];
                 if (item.Name != AgedBrieName && item.Name != BackstagePassName)
                 {
-                    if (item.Quality > MinimumQuality)
+                    if (IsNotHandOfRagnoros(item))
                     {
-                        if (IsNotHandOfRagnoros(item))
+                        if (item.Quality > MinimumQuality)
                         {
                             DecreaseQuality(item);
                         }
@@ -108,9 +108,9 @@ namespace GildedRose.Console
                     {
                         if (item.Name != BackstagePassName)
                         {
-                            if (item.Quality > MinimumQuality)
+                            if (IsNotHandOfRagnoros(item))
                             {
-                                if (IsNotHandOfRagnoros(item))
+                                if (item.Quality > MinimumQuality)
                                 {
                                     DecreaseQuality(item);
                                 }
