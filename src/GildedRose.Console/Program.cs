@@ -63,17 +63,7 @@ namespace GildedRose.Console
                 var isBrie = item.Name == "Aged Brie";
                 var isSulfuras = item.Name == "Sulfuras, Hand of Ragnaros";
 
-                if (!isBrie && !isBackstage)
-                {
-                    if (item.Quality > 0)
-                    {
-                        if (!isSulfuras)
-                        {
-                            item.Quality = item.Quality - 1;
-                        }
-                    }
-                }
-                else
+                if (isBrie || isBackstage)
                 {
                     if (item.Quality < 50)
                     {
@@ -99,36 +89,49 @@ namespace GildedRose.Console
                         }
                     }
                 }
+                else
+                {
+                    if (item.Quality > 0)
+                    {
+                        if (isSulfuras)
+                        {
+                        }
+                        else
+                        {
+                            item.Quality = item.Quality - 1;
+                        }
+                    }
+                }
 
-                if (!isSulfuras)
+                if (isSulfuras)
+                {
+                }
+                else
                 {
                     item.SellIn = item.SellIn - 1;
                 }
 
                 if (item.SellIn < 0)
                 {
-                    if (!isBrie)
-                    {
-                        if (!isBackstage)
-                        {
-                            if (item.Quality > 0)
-                            {
-                                if (!isSulfuras)
-                                {
-                                    item.Quality = item.Quality - 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            item.Quality = item.Quality - item.Quality;
-                        }
-                    }
-                    else
+                    if (isBrie)
                     {
                         if (item.Quality < 50)
                         {
                             item.Quality = item.Quality + 1;
+                        }
+                    }
+                    else
+                    {
+                        if (isBackstage)
+                        {
+                            item.Quality = item.Quality - item.Quality;
+                        }
+                        else
+                        {
+                            if (item.Quality > 0 && !isSulfuras)
+                            {
+                                item.Quality = item.Quality - 1;
+                            }
                         }
                     }
                 }
