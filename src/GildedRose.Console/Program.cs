@@ -71,6 +71,14 @@ namespace GildedRose.Console
                     }
 
                     item.SellIn = item.SellIn - 1;
+
+                    if (item.SellIn < 0)
+                    {
+                        if (item.Quality < 50)
+                        {
+                            item.Quality = item.Quality + 1;
+                        }
+                    }
                 }
                 else if (isBackstage)
                 {
@@ -96,6 +104,11 @@ namespace GildedRose.Console
 
                         item.SellIn = item.SellIn - 1;
                     }
+
+                    if (item.SellIn < 0)
+                    {
+                        item.Quality = item.Quality - item.Quality;
+                    }
                 }
                 else
                 {
@@ -108,22 +121,8 @@ namespace GildedRose.Console
 
                         item.SellIn = item.SellIn - 1;
                     }
-                }
 
-                if (item.SellIn < 0)
-                {
-                    if (isBrie)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
-                    else if (isBackstage)
-                    {
-                        item.Quality = item.Quality - item.Quality;
-                    }
-                    else
+                    if (item.SellIn < 0)
                     {
                         if (!isSulfuras && item.Quality > 0)
                         {
