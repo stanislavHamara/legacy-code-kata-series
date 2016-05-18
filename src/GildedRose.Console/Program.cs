@@ -65,68 +65,88 @@ namespace GildedRose.Console
 
                 if (isBrie)
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
-
-                    item.SellIn = item.SellIn - 1;
-
-                    if (item.SellIn < 0)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
+                    UpdateAgeingItem(item);
                 }
                 else if (isBackstage)
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-
-                        if (item.SellIn < 11)
-                        {
-                            if (item.Quality < 50)
-                            {
-                                item.Quality = item.Quality + 1;
-                            }
-                        }
-
-                        if (item.SellIn < 6)
-                        {
-                            if (item.Quality < 50)
-                            {
-                                item.Quality = item.Quality + 1;
-                            }
-                        }
-
-                        item.SellIn = item.SellIn - 1;
-                    }
-
-                    if (item.SellIn < 0)
-                    {
-                        item.Quality = item.Quality - item.Quality;
-                    }
+                    UpdateDesirableEventItem(item);
                 }
                 else if (isSulfuras)
                 {
+                    UpdateLegendaryItem(item);
                 }
                 else
                 {
-                    if (item.Quality > 0)
-                    {
-                        item.Quality = item.Quality - 1;
-                    }
+                    UpdatePerishableItem(item);
+                }
+            }
+        }
 
-                    item.SellIn = item.SellIn - 1;
+        private static void UpdateAgeingItem(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
 
-                    if (item.SellIn < 0 && item.Quality > 0)
+            item.SellIn = item.SellIn - 1;
+
+            if (item.SellIn < 0)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+                }
+            }
+        }
+
+        private static void UpdateDesirableEventItem(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+
+                if (item.SellIn < 11)
+                {
+                    if (item.Quality < 50)
                     {
-                        item.Quality = item.Quality - 1;
+                        item.Quality = item.Quality + 1;
                     }
                 }
+
+                if (item.SellIn < 6)
+                {
+                    if (item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+                    }
+                }
+
+                item.SellIn = item.SellIn - 1;
+            }
+
+            if (item.SellIn < 0)
+            {
+                item.Quality = item.Quality - item.Quality;
+            }
+        }
+
+        private static void UpdateLegendaryItem(Item item)
+        {
+        }
+
+        private static void UpdatePerishableItem(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                item.Quality = item.Quality - 1;
+            }
+
+            item.SellIn = item.SellIn - 1;
+
+            if (item.SellIn < 0 && item.Quality > 0)
+            {
+                item.Quality = item.Quality - 1;
             }
         }
     }
