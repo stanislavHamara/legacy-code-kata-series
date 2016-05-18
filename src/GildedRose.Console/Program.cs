@@ -59,11 +59,15 @@ namespace GildedRose.Console
         {
             foreach (var item in items)
             {
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                var isBackstage = item.Name == "Backstage passes to a TAFKAL80ETC concert";
+                var isBrie = item.Name == "Aged Brie";
+                var isSulfuras = item.Name == "Sulfuras, Hand of Ragnaros";
+
+                if (!isBrie && !isBackstage)
                 {
                     if (item.Quality > 0)
                     {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
+                        if (!isSulfuras)
                         {
                             item.Quality = item.Quality - 1;
                         }
@@ -75,7 +79,7 @@ namespace GildedRose.Console
                     {
                         item.Quality = item.Quality + 1;
 
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                        if (isBackstage)
                         {
                             if (item.SellIn < 11)
                             {
@@ -96,20 +100,20 @@ namespace GildedRose.Console
                     }
                 }
 
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                if (!isSulfuras)
                 {
                     item.SellIn = item.SellIn - 1;
                 }
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != "Aged Brie")
+                    if (!isBrie)
                     {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (!isBackstage)
                         {
                             if (item.Quality > 0)
                             {
-                                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                                if (!isSulfuras)
                                 {
                                     item.Quality = item.Quality - 1;
                                 }
