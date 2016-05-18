@@ -63,43 +63,41 @@ namespace GildedRose.Console
                 var isBrie = item.Name == "Aged Brie";
                 var isSulfuras = item.Name == "Sulfuras, Hand of Ragnaros";
 
-                if (isBrie || isBackstage)
+                if (isBrie)
+                {
+                    if (item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+                    }
+                }
+                else if (isBackstage)
                 {
                     if (item.Quality < 50)
                     {
                         item.Quality = item.Quality + 1;
 
-                        if (isBackstage)
+                        if (item.SellIn < 11)
                         {
-                            if (item.SellIn < 11)
+                            if (item.Quality < 50)
                             {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality = item.Quality + 1;
-                                }
+                                item.Quality = item.Quality + 1;
                             }
+                        }
 
-                            if (item.SellIn < 6)
+                        if (item.SellIn < 6)
+                        {
+                            if (item.Quality < 50)
                             {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality = item.Quality + 1;
-                                }
+                                item.Quality = item.Quality + 1;
                             }
                         }
                     }
                 }
                 else
                 {
-                    if (item.Quality > 0)
+                    if (!isSulfuras && item.Quality > 0)
                     {
-                        if (isSulfuras)
-                        {
-                        }
-                        else
-                        {
-                            item.Quality = item.Quality - 1;
-                        }
+                        item.Quality = item.Quality - 1;
                     }
                 }
 
@@ -120,18 +118,15 @@ namespace GildedRose.Console
                             item.Quality = item.Quality + 1;
                         }
                     }
+                    else if (isBackstage)
+                    {
+                        item.Quality = item.Quality - item.Quality;
+                    }
                     else
                     {
-                        if (isBackstage)
+                        if (!isSulfuras && item.Quality > 0)
                         {
-                            item.Quality = item.Quality - item.Quality;
-                        }
-                        else
-                        {
-                            if (item.Quality > 0 && !isSulfuras)
-                            {
-                                item.Quality = item.Quality - 1;
-                            }
+                            item.Quality = item.Quality - 1;
                         }
                     }
                 }
