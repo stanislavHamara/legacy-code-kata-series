@@ -59,19 +59,15 @@ namespace GildedRose.Console
         {
             foreach (var item in items)
             {
-                var isBackstage = item.Name == "Backstage passes to a TAFKAL80ETC concert";
-                var isBrie = item.Name == "Aged Brie";
-                var isSulfuras = item.Name == "Sulfuras, Hand of Ragnaros";
-
-                if (isBrie)
+                if (item.Name == "Aged Brie")
                 {
                     UpdateAgeingItem(item);
                 }
-                else if (isBackstage)
+                else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
                     UpdateDesirableEventItem(item);
                 }
-                else if (isSulfuras)
+                else if (item.Name == "Sulfuras, Hand of Ragnaros")
                 {
                     UpdateLegendaryItem(item);
                 }
