@@ -62,69 +62,24 @@ namespace GildedRose.Console
             {
                 if (item.Name == "Aged Brie")
                 {
-                    UpdateAgeingItem(item);
+                    var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
+                    itemUpdater.UpdateItem(item);
                 }
                 else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    UpdateDesirableEventItem(item);
+                    var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
+                    itemUpdater.UpdateItem(item);
                 }
                 else if (item.Name == "Sulfuras, Hand of Ragnaros")
                 {
-                    UpdateLegendaryItem(item);
+                    var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
+                    itemUpdater.UpdateItem(item);
                 }
                 else
                 {
-                    UpdatePerishableItem(item);
+                    var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
+                    itemUpdater.UpdateItem(item);
                 }
-            }
-        }
-
-        private static void UpdateAgeingItem(Item item)
-        {
-            item.IncreaseQuality();
-            item.DecreaseSellIn();
-
-            if (item.HasPassedSellByDate())
-            {
-                item.IncreaseQuality();
-            }
-        }
-
-        private static void UpdateDesirableEventItem(Item item)
-        {
-            // Tickets are more valuable when an event is closer
-            if (item.SellIn <= 10)
-            {
-                item.IncreaseQuality();
-            }
-
-            // They increase in value much more the closer we are to the event
-            if (item.SellIn <= 5)
-            {
-                item.IncreaseQuality();
-            }
-
-            item.IncreaseQuality();
-            item.DecreaseSellIn();
-
-            if (item.HasPassedSellByDate())
-            {
-                item.Quality = 0;
-            }
-        }
-
-        private static void UpdateLegendaryItem(Item item)
-        {
-        }
-
-        private static void UpdatePerishableItem(Item item)
-        {
-            item.DecreaseQuality();
-            item.DecreaseSellIn();
-
-            if (item.HasPassedSellByDate())
-            {
-                item.DecreaseQuality();
             }
         }
     }

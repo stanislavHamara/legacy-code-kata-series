@@ -43,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgeingItemUpdater.cs" />
+    <Compile Include="DesirableEventItemUpdater.cs" />
     <Compile Include="IItemUpdater.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemType.cs" />
     <Compile Include="ItemUpdaterFactory.cs" />
     <Compile Include="LegendaryItemUpdater.cs" />
+    <Compile Include="PerishableItemUpdater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

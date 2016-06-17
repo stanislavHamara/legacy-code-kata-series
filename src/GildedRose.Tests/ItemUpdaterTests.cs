@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using GildedRose.Console;
+﻿using GildedRose.Console;
 using NUnit.Framework;
 
 namespace GildedRose.Tests
@@ -42,7 +41,7 @@ namespace GildedRose.Tests
         [Test]
         public void BackstagePassItemShouldIncreaseQualityTwiceAsFastWhenSellInLessThanElevenDays()
         {
-            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 6 };
+            var item = new Item { ItemType = ItemType.DesirableEvent, Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 6 };
 
             UpdateItem(item);
 
@@ -53,7 +52,7 @@ namespace GildedRose.Tests
         [Test]
         public void BackstagePassItemShouldIncreaseQualityThreeTimesAsFastWhenSellInLessThanSixDays()
         {
-            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 6 };
+            var item = new Item { ItemType = ItemType.DesirableEvent, Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 6 };
 
             UpdateItem(item);
 
@@ -64,7 +63,7 @@ namespace GildedRose.Tests
         [Test]
         public void BackstagePassItemShouldHaveZeroQualityWhenSellInBelowZero()
         {
-            var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 6 };
+            var item = new Item { ItemType = ItemType.DesirableEvent, Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 6 };
 
             UpdateItem(item);
 
@@ -75,7 +74,7 @@ namespace GildedRose.Tests
         [Test]
         public void AgedBrieQualityIncreasesTwiceAsFastWhenSellInIsLessThanZero()
         {
-            var item = new Item { Name = "Aged Brie", SellIn = 0, Quality = 6 };
+            var item = new Item { ItemType = ItemType.Ageing, Name = "Aged Brie", SellIn = 0, Quality = 6 };
 
             UpdateItem(item);
 
@@ -97,7 +96,7 @@ namespace GildedRose.Tests
         [Test]
         public void SulfurasNeverDecreasesInQualityAndNeverHasToBeSold()
         {
-            var item = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 };
+            var item = new Item { ItemType = ItemType.Legendary, Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 };
 
             UpdateItem(item);
 
@@ -108,7 +107,7 @@ namespace GildedRose.Tests
         [Test]
         public void AgedBrieQualityCanNeverBeMoreThanFifty()
         {
-            var item = new Item { Name = "Aged Brie", SellIn = -1, Quality = 50 };
+            var item = new Item { ItemType = ItemType.Ageing, Name = "Aged Brie", SellIn = -1, Quality = 50 };
 
             UpdateItem(item);
 
