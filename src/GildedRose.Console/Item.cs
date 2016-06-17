@@ -8,6 +8,8 @@ namespace GildedRose.Console
 
         public int Quality { get; set; }
 
+        public ItemType ItemType { get; set; }
+
         public bool HasPassedSellByDate()
         {
             return SellIn < 0;
