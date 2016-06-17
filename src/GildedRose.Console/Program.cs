@@ -60,26 +60,9 @@ namespace GildedRose.Console
         {
             foreach (var item in items)
             {
-                if (item.Name == "Aged Brie")
-                {
-                    var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
-                    itemUpdater.UpdateItem(item);
-                }
-                else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
-                    itemUpdater.UpdateItem(item);
-                }
-                else if (item.Name == "Sulfuras, Hand of Ragnaros")
-                {
-                    var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
-                    itemUpdater.UpdateItem(item);
-                }
-                else
-                {
-                    var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
-                    itemUpdater.UpdateItem(item);
-                }
+                var itemUpdater = ItemUpdaterFactory.CreateItemUpdater(item.ItemType);
+                itemUpdater.UpdateItem(item);
+                
             }
         }
     }
