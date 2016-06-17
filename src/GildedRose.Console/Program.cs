@@ -153,13 +153,4 @@ namespace GildedRose.Console
             item.SellIn = item.SellIn - 1;
         }
     }
-
-    public class Item
-    {
-        public string Name { get; set; }
-
-        public int SellIn { get; set; }
-
-        public int Quality { get; set; }
-    }
 }
