@@ -71,11 +71,22 @@ namespace GildedRose.Console
                 {
                     UpdateLegendaryItem(item);
                 }
+                else if (item.Name == "Conjured Mana Cake")
+                {
+                    UpdateConjuredItem(item);
+                }
                 else
                 {
                     UpdatePerishableItem(item);
                 }
             }
+        }
+
+        private static void UpdateConjuredItem(Item item)
+        {
+            DecreaseQuality(item);
+            DecreaseQuality(item);
+            DecreaseSellIn(item);
         }
 
         private static void UpdateAgeingItem(Item item)

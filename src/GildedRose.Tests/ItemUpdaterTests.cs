@@ -116,6 +116,17 @@ namespace GildedRose.Tests
             Assert.AreEqual(-2, item.SellIn);
         }
 
+        [Test]
+        public void ConjuredManaCakeQualityDecreasesTwiceAsFast()
+        {
+            var item = new Item { Name = "Conjured Mana Cake", SellIn = 6, Quality = 10 };
+
+            UpdateItem(item);
+
+            Assert.AreEqual(8, item.Quality);
+            Assert.AreEqual(5, item.SellIn);
+        }
+
         private void UpdateItem(Item item)
         {
             Program.UpdateQuality(new[] { item });
