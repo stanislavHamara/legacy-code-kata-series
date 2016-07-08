@@ -23,18 +23,18 @@ namespace GildedRose.Console
             {
                 Items = new List<Item>
                 {
-                    new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20, ItemType = ItemType.PerishableItem},
-                    new Item {Name = "Aged Brie", SellIn = 2, Quality = 0, ItemType = ItemType.AgingItem},
-                    new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7, ItemType = ItemType.PerishableItem},
-                    new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80, ItemType = ItemType.LegendaryItem},
+                    new Item (name: "+5 Dexterity Vest", sellIn: 10, quality: 20, itemType: ItemType.PerishableItem),
+                    new Item (name: "Aged Brie", sellIn: 2, quality: 0, itemType: ItemType.AgingItem),
+                    new Item (name: "Elixir of the Mongoose", sellIn: 5, quality: 7, itemType: ItemType.PerishableItem),
+                    new Item (name: "Sulfuras, Hand of Ragnaros", sellIn: 0, quality: 80, itemType: ItemType.LegendaryItem),
                     new Item
-                    {
-                        Name = "Backstage passes to a TAFKAL80ETC concert",
-                        SellIn = 15,
-                        Quality = 20,
-                        ItemType = ItemType.DesirableEventItem
-                    },
-                    new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6, ItemType = ItemType.ConjuredItem}
+                    (
+                        name: "Backstage passes to a TAFKAL80ETC concert",
+                        sellIn: 15,
+                        quality: 20,
+                        itemType: ItemType.DesirableEventItem
+                    ),
+                    new Item (name: "Conjured Mana Cake", sellIn: 3, quality: 6, itemType: ItemType.ConjuredItem)
                 }
             };
 
