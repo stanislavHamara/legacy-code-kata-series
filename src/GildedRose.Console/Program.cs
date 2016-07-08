@@ -34,7 +34,15 @@ namespace GildedRose.Console
                         quality: 20,
                         itemType: ItemType.DesirableEventItem
                     ),
-                    new Item (name: "Conjured Mana Cake", sellIn: 3, quality: 6, itemType: ItemType.ConjuredItem)
+                    new Item (name: "Conjured Mana Cake", sellIn: 3, quality: 6, itemType: ItemType.ConjuredItem),
+                    new Item (name: "Merlot Red Wine", sellIn: 3, quality: 9, itemType: ItemType.AgingItem),
+                    new Item (name: "Stilton", sellIn: 3, quality: 9, itemType: ItemType.AgingItem),
+                    new Item (name: "Gruyere Cheese", sellIn: 3, quality: 9, itemType: ItemType.AgingItem),
+                    new Item (name: "Cuban Cigars", sellIn: 3, quality: 9, itemType: ItemType.LegendaryItem),
+                    new Item (name: "Artichoke", sellIn: 5, quality: 9, itemType: ItemType.PerishableItem),
+                    new Item (name: "Yoghurt", sellIn: 10, quality: 9, itemType: ItemType.PerishableItem),
+                    new Item (name: "Gourmet Dinner Tickets", sellIn: 10, quality: 9, itemType: ItemType.DesirableEventItem),
+                    new Item (name: "Wine Tasting Workshop", sellIn: 42, quality: 9, itemType: ItemType.DesirableEventItem),
                 }
             };
 
