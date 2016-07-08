@@ -23,17 +23,18 @@ namespace GildedRose.Console
             {
                 Items = new List<Item>
                 {
-                    new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-                    new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                    new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                    new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
+                    new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20, ItemType = ItemType.PerishableItem},
+                    new Item {Name = "Aged Brie", SellIn = 2, Quality = 0, ItemType = ItemType.AgingItem},
+                    new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7, ItemType = ItemType.PerishableItem},
+                    new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80, ItemType = ItemType.LegendaryItem},
                     new Item
                     {
                         Name = "Backstage passes to a TAFKAL80ETC concert",
                         SellIn = 15,
-                        Quality = 20
+                        Quality = 20,
+                        ItemType = ItemType.DesirableEventItem
                     },
-                    new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+                    new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6, ItemType = ItemType.ConjuredItem}
                 }
             };
 
@@ -59,25 +60,26 @@ namespace GildedRose.Console
         {
             foreach (var item in items)
             {
-                if (item.Name == "Aged Brie")
+                switch (item.ItemType)
                 {
-                    UpdateAgeingItem(item);
-                }
-                else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    UpdateDesirableEventItem(item);
-                }
-                else if (item.Name == "Sulfuras, Hand of Ragnaros")
-                {
-                    UpdateLegendaryItem(item);
-                }
-                else if (item.Name == "Conjured Mana Cake")
-                {
-                    UpdateConjuredItem(item);
-                }
-                else
-                {
-                    UpdatePerishableItem(item);
+                    case ItemType.AgingItem:
+                        UpdateAgeingItem(item);
+                        break;
+                    case ItemType.ConjuredItem:
+                        UpdateConjuredItem(item);
+                        break;
+                    case ItemType.DesirableEventItem:
+                        UpdateDesirableEventItem(item);
+                        break;
+                    case ItemType.LegendaryItem:
+                        UpdateLegendaryItem(item);
+                        break;
+                    case ItemType.PerishableItem:
+                        UpdatePerishableItem(item);
+                        break;
+                    default:
+                        throw new InvalidOperationException($"Cannot update quality for item type {item.ItemType}");
+
                 }
             }
         }

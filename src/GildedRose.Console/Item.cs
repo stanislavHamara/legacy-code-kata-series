@@ -1,3 +1,5 @@
+using System;
+
 namespace GildedRose.Console
 {
     public class Item
@@ -7,5 +9,17 @@ namespace GildedRose.Console
         public int SellIn { get; set; }
 
         public int Quality { get; set; }
+
+        public ItemType ItemType { get; set; }
+    }
+
+    public enum ItemType
+    {
+        Unspecified,
+        AgingItem,
+        DesirableEventItem,
+        ConjuredItem,
+        PerishableItem,
+        LegendaryItem
     }
 }
